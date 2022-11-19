@@ -33,9 +33,18 @@ line10 = next(lineiterator)
 line10 = line10.decode("utf-8")
 print(line10)
 
-if (float(line10) >= 40):
-    bstick.set_color(name="red")
-if (float(line10) >= 20 and float(line10) < 40):
-    bstick.set_color(name="orange")
-if (float(line10) < 20):
-    bstick.set_color(name="green")
+def update_color():
+    if (float(line10) > 40):
+        bstick.set_color(name="red")
+    if (float(line10) >= 20 and float(line10) < 40):
+        bstick.set_color(name="orange")
+    if (float(line10) < 20):
+        bstick.set_color(name="green")
+
+update_color()
+
+import time, sys
+while (True):
+    sys.stdout.flush()
+    time.sleep(60*60)
+    update_color()
